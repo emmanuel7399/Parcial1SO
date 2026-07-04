@@ -14,7 +14,7 @@ def procesar_archivo(ruta_entrada):
             if not linea or linea.startswith("#"):
                 continue
             
-            # Parseo según estructura: etiqueta; BT; AT; Q; Prioridad [cite: 21]
+            # Parseo según estructura: etiqueta; BT; AT; Q; Prioridad 
             datos = linea.split(";")
             if len(datos) == 5:
                 p = Proceso(datos[0].strip(), datos[1], datos[2], datos[3], datos[4])
@@ -28,7 +28,7 @@ def procesar_archivo(ruta_entrada):
     ruta_salida = f"salida_{os.path.basename(ruta_entrada)}"
     with open(ruta_salida, 'w') as file:
         file.write(f"# archivo: {os.path.basename(ruta_entrada)}\n")
-        file.write("# etiqueta; BT; AT; Q; Pr; WT; CT; RT; TAT\n") # [cite: 28]
+        file.write("# etiqueta; BT; AT; Q; Pr; WT; CT; RT; TAT\n") 
         
         sum_wt = sum_ct = sum_rt = sum_tat = 0.0
         
@@ -44,7 +44,7 @@ def procesar_archivo(ruta_entrada):
             
         n = len(simulador.terminados)
         if n > 0:
-            # Los valores promedio de estas métricas [cite: 30]
+            # Los valores promedio de estas métricas 
             promedios = f"# WT={sum_wt/n:.2f}; CT={sum_ct/n:.2f}; RT={sum_rt/n:.2f}; TAT={sum_tat/n:.2f};\n"
             file.write(promedios)
             
@@ -52,4 +52,4 @@ def procesar_archivo(ruta_entrada):
 
 if __name__ == "__main__":
     # Prueba con el archivo proporcionado
-    procesar_archivo("mlq002.txt")
+    procesar_archivo("mlq026.txt")

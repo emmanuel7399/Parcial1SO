@@ -21,7 +21,7 @@ class SimuladorMLQ:
                     self.cola_3.append(p)
 
     def _obtener_siguiente_proceso(self):
-        # El algoritmo despacha respetando la prioridad de la cola [cite: 13]
+        # El algoritmo despacha respetando la prioridad de la cola 
         if self.cola_1:
             return self.cola_1.pop(0), 3.0, 1 # (Proceso, Quantum, ID Cola)
         if self.cola_2:
